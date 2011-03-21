@@ -29,7 +29,7 @@ You can also let users be kicked, fined and/or jailed, if you are running the ap
 [*] Jail (tested with v0.5.4) - optionally
 [*] Tested craftbukkit b526/b527/b531/b541/b556
 [*] GroupManager v1.0(alpha-5) - should work on permission, but this is untested
-    - It checks on groupmanager first, then on permissions plugin. If not found, the plugin is disabled
+    It checks on groupmanager first, then on permissions plugin. If not found, the plugin is disabled
 [/LIST]
 [/spoiler]
 
