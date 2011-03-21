@@ -1,0 +1,50 @@
+# Configuration for ChatSensor
+#   - ddj 2011
+#
+
+### Action values ###
+# fine-amount: nr of iconomy units to pay as fine
+# jail-time: time in minutes player is sent to jail
+settings:
+    fine-amount: 50
+    jail-time: 2       
+
+### database type sqlite or mysql (make sure you have sqlite.jar / mysql.jar in lib folder ###
+database:
+    type: sqlite
+    mysql:
+        name: minecraft
+        username: root
+        password: root
+        hostname: localhost
+        port: 3306
+### Toggles (Values at startup) ###
+# autofine = let the player pay a fine
+# autokick = kick the player
+# autojail = automaticly put the player in the nearest jail
+toggles:
+    use-autofine: true
+    use-autokick: false
+    use-autojail: false
+
+### Labels ###
+labelsandcolors:
+    chat-prefix: '[CS]'
+    chat-prefix-color: '&d'
+    chat-message-color: '&e'
+    chat-highlighted-color: '&a'
+     
+### Text ###
+broadcasttext:
+    player-fined-message: '@playername@ received a fine of @fine-amount@ coin!'
+    player-kicked-message: '@playername@ is kicked because he was not following our rules on cursing!'
+    
+messagetext:
+    player-fined: 'You have been fined @fine-amount@ because you were not following our rules!'
+    player-kicked: 'Kicked automaticly because you were not following our rules!'
+    player-kicked-fined: 'Kicked automaticly and fined @fine-amount@ for not following our rules!'
+    internal-possible-toggles: Possible toggles: jail - pay - kick
+    internal-jail-status: Autojail status: @autojail-status@
+    internal-kick-status: Autokick status: @autokick-status@
+    internal-payfine-status: Autopay fine status: @autopayfine-status@
+      

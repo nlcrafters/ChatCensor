@@ -1,0 +1,54 @@
+# Configuration for ChatSensor
+#   - ddj 2011
+#
+
+# fine-amount: nr of iconomy units to pay as fine
+# jail-time: time in minutes player is sent to jail
+settings:
+    fine-amount: 50
+    jail-time: 2
+    auto-increase-jail-time: 0.0
+    kick-when-broke: true
+### Toggles (Values at startup) ###
+# use-autofine = let the player pay a fine
+# use-autokick = kick the player
+# use-autojail = automatically put the player in the nearest jail
+toggles:
+    use-autofine: true
+    use-autokick: false
+    use-autojail: false
+    use-jailmute: false
+    ### database type sqlite or mysql (make sure you have sqlite.jar / mysql.jar in lib folder ###
+database:
+    type: sqlite
+    mysql:
+        name: minecraft
+        username: root
+        password: root
+        hostname: localhost
+        port: 3306     
+### Labels ###
+labelsandcolors:
+    chat-prefix: '[CC]'
+    chat-prefix-color: '&d'
+    chat-message-color: '&f'
+    chat-highlighted-color: '&a'
+    replace-color: '&e'
+    replace-word: bananas
+    marked-words-color: '&c'
+### Broadcast messages  ###
+broadcasttext:
+    player-fined-message: '@playername@ received a fine of @fine-amount@ coin!'
+    player-kicked-message: '@playername@ is kicked for not following our rules on cursing!'
+    player-jailed-message: ' @playername@ is jailed @jailtime@ min for not following our rules on cursing!'
+### Messages to player(s)    
+messagetext:
+    player-fined: 'You have been fined @fine-amount@ because you were not following our rules!'
+    player-kicked: 'Kicked automatically because you were not following our rules!'
+    player-kicked-fined: 'Kicked automatically and fined @fine-amount@ for not following our rules!'
+    player-muted: 'You shout, but nobody is hearing you'
+    internal-possible-toggles: 'Possible toggles: jail - pay - kick'
+    internal-jail-status: 'Autojail status: @autojail-status@'
+    internal-kick-status: 'Autokick status: @autokick-status@'
+    internal-payfine-status: 'Autopay fine status: @autopayfine-status@'
+    internal-jailmute-status: 'Prevent chatting in jail: @jailmute-status@'

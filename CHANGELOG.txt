@@ -1,0 +1,31 @@
+Changelog:
+Version 0.15
+* Changed iconomy details (use subtract instead of setbalance) 
+* If player is fined, but don't have enough balance -> kick
+* Forbidden words now have to be at least 3 chars long
+* Fixed bug where it could happen that console was spammed with bananas;)
+* added one argument to /cc list -> /cc list abc now returns all words containing abc
+* added /cc clearall , clears all words so use with care!
+Version 0.14
+* Added multiple replacement-words. Instead of only bananas, you can set your
+  word-value to bananas,apples,peers  It will then take one randomly each time a 
+  word is replaced.
+Version 0.13
+* Added more flexible database libraries. Having a mysql*.jar or sqlite jar in 
+  your bukkit folder or lib, it will work in both cases, with most mysql versions.
+* Fixed bug where newly (/cc add) added words would not be active right away.
+* Added better error-handling while accessing iconomy/jail plugins.
+Version 0.12
+* Broadcast messages also show on console now (player fined/jailed etc).
+* Fixed bug in jail/iconomy check. If they were not used, this resulted in errors.
+  This plugin now can be used without them without any problems.
+Version 0.11
+* Fixed bug with jail toggle
+* Ignore chat events if the are cancelled (by other plugins).
+* Added option to let the jailtime auto-increase by a certain factor
+  If the jail-time: 4, the auto-increase-jail-time: 0.5 and a player uses
+  a forbidden word for the 10th time, his jailtime will be: (0.5*10) + 4 = 9 mins
+* Added /cc reset command to reset playerstats
+Version 0.10
+* Initial Release
+

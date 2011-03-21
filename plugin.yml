@@ -1,0 +1,8 @@
+name: ChatSensor
+main: nl.crafters.chatcensor.ChatCensor
+version: 0.14
+authors:
+- ddj
+commands:
+    cc:
+        description: Base command for chat censor
