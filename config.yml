@@ -9,6 +9,7 @@ settings:
     jail-time: 2
     auto-increase-jail-time: 0.0
     kick-when-broke: true
+    use-regex: true 
 ### Toggles (Values at startup) ###
 # use-autofine = let the player pay a fine
 # use-autokick = kick the player
