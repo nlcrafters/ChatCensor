@@ -1,7 +1,5 @@
 package nl.crafters.chatcensor;
 
-import java.util.Random;
-
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -17,9 +15,7 @@ import com.nijiko.coelho.iConomy.system.Account;
 public class ChatCensorPlayerListener extends PlayerListener {
 	public static ChatCensor plugin;
 	public static Censor c;
-	public final static char deg = '\u00A7';
 	public final static int lineLength = 53;
-	private Random rGen  = new Random();
 	
 	public ChatCensorPlayerListener(ChatCensor instance) {
 		plugin = instance;
@@ -51,22 +47,6 @@ public class ChatCensorPlayerListener extends PlayerListener {
 		cMessage = cMessage.substring(1);
 		if (badnews) 
 		{
-			String wlist = plugin.getMessage("labelsandcolors.replace-word", null);
-			String replacements[] = wlist.split(",");
-			String replacementChoice = "";
-			if (replacements.length<=1)
-			{
-				replacementChoice = wlist;
-			}
-			else {
-				int item = rGen.nextInt((replacements.length));
-				replacementChoice = replacements[item];
-			}
-				
-			String replacement = plugin.getColor("labelsandcolors.replace-color")  + replacementChoice + ChatColor.WHITE;
-			cMessage = cMessage.replaceAll("@bananen@", replacement);
-			cMessage = cMessage.replaceAll(ChatColor.WHITE + "" + ChatColor.YELLOW, "");
-			cMessage = cleanMsgEnding(cMessage);
 			event.setMessage(cMessage);
 			TakeAction(player);			
 		}
@@ -74,6 +54,7 @@ public class ChatCensorPlayerListener extends PlayerListener {
 		player = null;
 		cMessage = null;
 	}
+
 	private void TakeAction(Player player) {
 		plugin.db.AddCounter(player.getName(), "total");
 		FinePlayer(player,false);
@@ -139,20 +120,6 @@ public class ChatCensorPlayerListener extends PlayerListener {
 		return true;
 	}
 	
-	// Clean up chat message to prevent client crashes
-	protected static String cleanMsgEnding (String msg) {
-		
-		while (msg.length() > 0) {
-			if (msg.endsWith(String.valueOf(deg)) || msg.endsWith(" ")) {
-				msg = msg.substring(0, msg.length()-1);
-			} else if (msg.length() >= 2 && msg.charAt(msg.length() - 2) == deg) {
-				msg = msg.substring(0, msg.length()-2);
-			} else {
-				break;
-			}
-		}
-		return msg;
-	}
 	
 	// send log message to player or server (when used from console)
 	public void Log(Player p, String message) {
@@ -307,6 +274,10 @@ public class ChatCensorPlayerListener extends PlayerListener {
 				}
 					
 			}
+			if (ttype.equalsIgnoreCase("regex")) {
+				plugin.useRegex=!plugin.useRegex;
+				Log(player,plugin.CHATPREFIX  + " Use regex:" + ChatColor.YELLOW + plugin.useRegex);
+			}
 			if (ttype.equalsIgnoreCase("kick")) {
 				plugin.useAutoKick=!plugin.useAutoKick;
 				plugin.saveConfig();
@@ -416,6 +387,7 @@ public class ChatCensorPlayerListener extends PlayerListener {
 				Log(player,plugin.CHATPREFIX  + " Auto-Kick status: " + ChatColor.YELLOW + plugin.useAutoKick);
 				Log(player,plugin.CHATPREFIX  + " Auto-jail status: " + ChatColor.YELLOW + plugin.useAutoJail + " /" + plugin.JailTime + " min");
 				Log(player,plugin.CHATPREFIX  + " Mute while in jail: " + ChatColor.YELLOW + plugin.useJailMute);
+				Log(player,plugin.CHATPREFIX  + " Regex mode enabled: " + ChatColor.YELLOW + plugin.useRegex);
 				Log(player,plugin.CHATPREFIX  + " Auto-pay fine status: " + ChatColor.YELLOW + plugin.useiConomy);
 				Log(player,plugin.CHATPREFIX  + " Fine value: " + ChatColor.YELLOW + plugin.PlayerFine);
 			}

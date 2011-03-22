@@ -41,6 +41,8 @@ public class ChatCensor extends JavaPlugin{
 	public boolean useJailMute = false;
 	public boolean useKickWhenBroke = false;
 	public double useIncreaseJailTime=0.0;
+	public boolean useRegex = false;
+	
 	public static boolean broadcasttoconsole = true;
 	
 
@@ -161,11 +163,11 @@ public class ChatCensor extends JavaPlugin{
 		}
 		useAutoKick = config.getBoolean("toggles.use-autokick", false);
 		useKickWhenBroke = config.getBoolean("settings.kick-when-broke", false);
+		useRegex = config.getBoolean("settings.use-regex", false);
 		PlayerFine = config.getInt("settings.fine-amount", -1);
 		JailTime = config.getInt("settings.jail-time",-1);
+		
 		AddLog("Configuration reloaded");
-		
-		
 	}
     public void loadConfig() {
     	
@@ -202,7 +204,11 @@ public class ChatCensor extends JavaPlugin{
 		useKickWhenBroke = config.getBoolean("settings.kick-when-broke", false);
 		PlayerFine = config.getInt("settings.fine-amount", -1);
 		JailTime = config.getInt("settings.jail-time",-1);
+		useRegex = config.getBoolean("settings.use-regex", false);
 		useIncreaseJailTime = config.getDouble("settings.auto-increase-jail-time",0.0);
+		if (useRegex) {
+			AddLog("** Using regex!!");
+		}
 		AddLog("iConomy/autokick/autojail/mute/fine:");
 		AddLog(useiConomy + "/" + useAutoKick + "/" + useAutoJail+ "(" + JailTime + "min)/" + useJailMute + "/" + PlayerFine);
     }
