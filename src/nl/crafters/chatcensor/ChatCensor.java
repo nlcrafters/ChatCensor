@@ -19,7 +19,8 @@ import org.anjocaido.groupmanager.dataholder.worlds.WorldsHolder;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import com.matejdro.bukkit.jail.*; 
+import com.matejdro.bukkit.jail.*;
+
 /** 
  * ChatCensor for Bukkit
  * 
@@ -310,8 +311,6 @@ public class ChatCensor extends JavaPlugin{
 	}
 	@Override
 	public void onDisable() {
-		// TODO Auto-generated method stub
-		
 		PluginDescriptionFile pdfFile = this.getDescription();
 		c = null;
 		db = null;

@@ -239,7 +239,6 @@ public class ChatCensorPlayerListener extends PlayerListener {
 			try {
 				ttype = args[1];
 			} catch (Exception e) {
-				// TODO: handle exception
 				Log(player,plugin.CHATPREFIX  + " Possible toggles: jail - mute - pay - kick" + plugin.useAutoJail);
 				Log(player,plugin.CHATPREFIX  + " Type /cc toggles to see all toggle statusses");
 			}
@@ -290,7 +289,6 @@ public class ChatCensorPlayerListener extends PlayerListener {
 			try {
 				ttype = args[1];
 			} catch (Exception e) {
-				// TODO: handle exception
 				Log(player,plugin.CHATPREFIX  + " name not found, use /cc kick playername");
 				return;
 			}
@@ -314,7 +312,6 @@ public class ChatCensorPlayerListener extends PlayerListener {
 			try {
 				ttype = args[1];
 			} catch (Exception e) {
-				// TODO: handle exception
 				Log(player,plugin.CHATPREFIX  + " name not found, use /cc jail playername");
 				return;
 			}
@@ -339,7 +336,6 @@ public class ChatCensorPlayerListener extends PlayerListener {
 			try {
 				ttype = args[1];
 			} catch (Exception e) {
-				// TODO: handle exception
 				Log(player,plugin.CHATPREFIX  + " name not found, use /cc fineplayername");
 				return;
 			}

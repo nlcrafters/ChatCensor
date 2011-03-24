@@ -4,6 +4,10 @@
 
 # fine-amount: nr of iconomy units to pay as fine
 # jail-time: time in minutes player is sent to jail
+# auto-increase-jail-time: (jail-time + (auto-increase-jail-time*total times in jail) = variable jailtime
+#                          If you want to use the default fixed jailtime, set this number to 0.0
+# kick-when-broke: if a player is fined, but don't have enough coin, kick him/her instead.
+# use-regex: In development, doesnt do much atm
 settings:
     fine-amount: 50
     jail-time: 2
@@ -14,12 +18,14 @@ settings:
 # use-autofine = let the player pay a fine
 # use-autokick = kick the player
 # use-autojail = automatically put the player in the nearest jail
+# use-automute = Mute player chat while in jail
 toggles:
     use-autofine: true
     use-autokick: false
     use-autojail: false
     use-jailmute: false
-    ### database type sqlite or mysql (make sure you have sqlite.jar / mysql.jar in lib folder ###
+    
+    ### database type sqlite or mysql 
 database:
     type: sqlite
     mysql:

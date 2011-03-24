@@ -64,7 +64,6 @@ public class Database {
 				connection = DriverManager.getConnection("jdbc:sqlite:plugins\\ChatCensor\\csensor.db");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			plugin.AddLog("DB Error:" + e.getMessage());
 			return false;
 		}
@@ -75,7 +74,6 @@ public class Database {
 			connection.close();
 			connection = null;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			plugin.AddLog("DB Error:" + e.getMessage());
 			return false;
 		}
@@ -255,7 +253,6 @@ public class Database {
 			}
 			rs.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			plugin.AddLog("Error in reading stats in database!" + e.getMessage());
 			disConnect();
 			return "";
@@ -316,13 +313,11 @@ public class Database {
 				rs.close();
 				disConnect();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				plugin.AddLog("Database error:" + e.getMessage());
 			}
 			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			plugin.AddLog("Error in reading stats in database!");
 		}
 	}
@@ -348,7 +343,6 @@ public class Database {
 				st.executeUpdate(strSQL);
 				disConnect();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				plugin.AddLog("Database error:" + e.getMessage());
 			}
 		return true;
@@ -373,7 +367,6 @@ public class Database {
 				rs.close();
 				disConnect();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				plugin.AddLog("Database error:" + e.getMessage());
 			}
 		return retval;
@@ -399,7 +392,6 @@ public class Database {
 				st.executeUpdate(strSQL);
 				disConnect();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				plugin.AddLog("Database error:" + e.getMessage());
 			}
 		return true;
@@ -428,11 +420,9 @@ public class Database {
 				rs.close();
 				disConnect();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				plugin.AddLog("Database error:" + e.getMessage());
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			plugin.AddLog("Error in reading stats in database!");
 		}
 		return out.split(";");
@@ -450,7 +440,6 @@ public class Database {
 			disConnect();
 			st = null;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			plugin.AddLog("Error in updating stats in database!");
 			disConnect();
 			return false;
@@ -487,7 +476,6 @@ public class Database {
 			}
 			rs.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			plugin.AddLog("Error in writing stats in database!");
 			disConnect();
 			return false;
@@ -537,7 +525,6 @@ public class Database {
 		try {
 			st.executeUpdate(strSQL);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			disConnect();
 			plugin.AddLog("Error in updating stats:" + strSQL);
 			return false;
