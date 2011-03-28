@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.event.player.PlayerListener;
 import com.matejdro.bukkit.jail.Jail;
+import com.matejdro.bukkit.jail.JailPrisoner;
 import com.nijiko.coelho.iConomy.iConomy;
 import com.nijiko.coelho.iConomy.system.Account;
 
@@ -25,12 +26,12 @@ public class ChatCensorPlayerListener extends PlayerListener {
 		if (event.isCancelled()) 
 			return;
 		Player player = event.getPlayer();
+		
 		// check if player is in jail, and mute is on:
 		if (plugin.useAutoJail) {
 			try {
 				if (plugin.jail.API.isJailed(player.getName()) && plugin.useJailMute)  
 				{
-					
 					player.sendMessage(plugin.getMessage("messagetext.player-muted", null));
 					event.setCancelled(true);
 					player = null;
@@ -84,15 +85,23 @@ public class ChatCensorPlayerListener extends PlayerListener {
 	}
 	private boolean JailPlayer(Player p, boolean ignoreStatus) {
 		if (plugin.useAutoJail || ignoreStatus ) {
-			
 			try {
 				if (Jail.zones.size() > 0) {
 					int nJailTime = plugin.db.GetJailTime(p,plugin.JailTime);
-					plugin.playerJailed(p);
-					CraftServer cs = (CraftServer) plugin.getServer();
-					CommandSender coms = new ConsoleCommandSender(plugin.getServer());
-					cs.dispatchCommand(coms,"jail " + p.getName() + " " + nJailTime);
+					String jMethod = plugin.config.getString("settings.jail-api-type","api");
+					if (jMethod.equalsIgnoreCase("api")) {
+						// Method 1
+						JailPrisoner prisoner = new JailPrisoner(p.getName() , nJailTime * 6, "", false, "");
+						plugin.jail.Jail(prisoner, p);
+					}
+					else if (jMethod.equalsIgnoreCase("consolecommand")){
+						// Method 2
+						CraftServer cs = (CraftServer) plugin.getServer();
+						CommandSender coms = new ConsoleCommandSender(plugin.getServer());
+						cs.dispatchCommand(coms,"jail " + p.getName() + " " + nJailTime);
+					}
 					plugin.db.AddCounter(p.getName(), "jail");
+					plugin.playerJailed(p);
 				}
 			} catch (Exception e) {
 				plugin.AddLog("Error accessing Jail plugin:" + e.getMessage());
