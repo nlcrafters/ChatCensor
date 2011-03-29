@@ -8,12 +8,16 @@
 #                          If you want to use the default fixed jailtime, set this number to 0.0
 # kick-when-broke: if a player is fined, but don't have enough coin, kick him/her instead.
 # use-regex: In development, doesnt do much atm
+# jail-api-type: api for direct plugin command (uses jail plugin internal method calls)
+#                consolecommand acts like someone enters /jail player 4 command from server console
+
 settings:
     fine-amount: 50
     jail-time: 2
     auto-increase-jail-time: 0.0
     kick-when-broke: true
     use-regex: true 
+    jail-api-type: api
 ### Toggles (Values at startup) ###
 # use-autofine = let the player pay a fine
 # use-autokick = kick the player
