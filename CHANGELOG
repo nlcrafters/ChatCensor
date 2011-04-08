@@ -1,4 +1,6 @@
 Changelog:
+Version 0.17
+* Bugfix in regex wip component
 Version 0.16
 * Fixed error after disabling plugin
 * Checked pluginname for b670  

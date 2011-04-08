@@ -59,13 +59,14 @@ public class Censor {
     				else {
     					strToMatch = "(?i)" + strToMatch;
     				}
+        	        Pattern pattern = Pattern.compile(strToMatch);
+        			Matcher matcher = pattern.matcher(out);
+        			domatch = matcher.matches();
     			}
     			else {
-    				strToMatch = "(?i).*" + s.toLowerCase() + ".*";
+    				domatch = out.toLowerCase().contains(s.toLowerCase());
+    				strToMatch = s.toLowerCase();
     			}
-    	        Pattern pattern = Pattern.compile(strToMatch);
-    			Matcher matcher = pattern.matcher(out);
-    			domatch = matcher.matches();
     			
     			if (domatch) {
 	    	    	badnews = true;

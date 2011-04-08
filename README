@@ -1,8 +1,8 @@
-[ADMN/CHAT] ChatCensor v0.16 - Chat censor system with auto-kick/fine/jail [670]
+[ADMN/CHAT] ChatCensor v0.17 - Chat censor system with auto-kick/fine/jail [670]
 ================================================================================
 ChatCensor - Chat censor system with auto-kick/fine/jail
              
-[B]Version:[/B] v0.16
+[B]Version:[/B] v0.17
 Tested with craftbukkit builds: [B]b617/b670[/B] 
 
 This plugin lets you control used languaged on your server, by censor words you want.
@@ -146,10 +146,14 @@ ChatCensor.action.fine
 [/spoiler]
 
 Download latest version:
-[url]http://www.crafters.nl/cc/ChatCensor_v0.15.zip[/url] ([url=http://www.crafters.nl/cc/ChatCensor.jar]Jar only[/url])
+[url]http://www.crafters.nl/cc/ChatCensor_v0.17.zip[/url] ([url=http://www.crafters.nl/cc/ChatCensor.jar]Jar only[/url])
 Source Code is included in Jar and available through [url=https://github.com/nlcrafters]my github[/url]
 
 [B]Changelog:[/B]
+Version 0.17 
+[LIST]
+[*] Fixed bug which caused whole sentence being replaced by 1 word 
+[/LIST]
 Version 0.16 
 [LIST]
 [*] Fixed error after disabling plugin
@@ -167,13 +171,12 @@ Version 0.15
 [*] Added one argument to /cc list -> /cc list abc now returns all words containing abc
 [*] Added /cc clearall -> used for clear all words from databae; use with care!
 [/LIST]
-
+[spoiler=All Versions]
 Version 0.14 
 [LIST]
 [*] Added multiple replacement-words. Instead of only bananas, you can set your
 word-value to bananas,apples,peers  It will then take one randomly each time a word is replaced. 
 [/LIST]
-[spoiler=All Versions]
 Version 0.13 
 [LIST]
 [*] Added more flexible database libraries. Having a mysql*.jar or sqlite jar in 
