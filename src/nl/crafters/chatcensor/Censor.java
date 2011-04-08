@@ -67,19 +67,14 @@ public class Censor {
     			Matcher matcher = pattern.matcher(out);
     			domatch = matcher.matches();
     			
-    			
-    			plugin.AddLog("Regex:" + plugin.useRegex +  " str:" + strToMatch +  " result:" + domatch);
-    			
-    			
     			if (domatch) {
 	    	    	badnews = true;
 					String replacement = plugin.getColor("labelsandcolors.replace-color")  + getRandomWord() + ChatColor.WHITE;
-					plugin.AddLog("OUT:" + out);
-					plugin.AddLog("machter:" + matcher.replaceAll(replacement));
-					
-					plugin.AddLog("OUT:" + out);
-					plugin.AddLog("ReplaceAll:" + out.replaceAll(strToMatch,replacement));
-					plugin.AddLog("OUT:" + out);
+					//plugin.AddLog("OUT:" + out);
+					//plugin.AddLog("machter:" + matcher.replaceAll(replacement));
+					//plugin.AddLog("OUT:" + out);
+					//plugin.AddLog("ReplaceAll:" + out.replaceAll(strToMatch,replacement));
+					//plugin.AddLog("OUT:" + out);
 					
 					
 					out = replace(out,strToMatch,replacement);
@@ -87,8 +82,7 @@ public class Censor {
     	    		//out = out.toLowerCase().replace(s.toLowerCase(),replacement);
     				//out= out.replaceAll(ChatColor.WHITE + "" + ChatColor.YELLOW, "");
     				out = cleanMsgEnding(out);
-    				plugin.AddLog("OUT:" + out);
-    	    		
+    				//plugin.AddLog("OUT:" + out);
 	    	    }
     		}
     	}
@@ -193,7 +187,6 @@ public class Censor {
     // Loads forbidden words from Censor.txt into string array
     // Also Creates plugin/ChatCensor folder and empty Censor.txt file in it
     public void loadWords() {
-    	//plugin.AddLog("Start loading words");
     	censored.clear();
     	Integer i = 0;
     	String list[] = plugin.db.GetWords();

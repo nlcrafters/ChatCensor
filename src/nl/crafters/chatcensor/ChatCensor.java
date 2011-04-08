@@ -65,7 +65,7 @@ public class ChatCensor extends JavaPlugin{
 	
 	public String CHATPREFIX = ChatColor.RED + "[NLC]" + ChatColor.AQUA;
 	
-	void setupPermissions() {
+	boolean setupPermissions() {
 		
 		// first search for groupmanager
 		Plugin p = this.getServer().getPluginManager().getPlugin("GroupManager");
@@ -92,8 +92,10 @@ public class ChatCensor extends JavaPlugin{
 		}
 		if (pSystem==0) {
 	    	AddLog("Permission/Groupmanager system found or not enabled. Disabling plugin.");
-	    	this.getServer().getPluginManager().disablePlugin(this);			
+	    	this.getServer().getPluginManager().disablePlugin(this);
+	    	return false;
 		}
+		return true;
 		
 	}
 
@@ -289,9 +291,6 @@ public class ChatCensor extends JavaPlugin{
 	public void onEnable() {
 		PluginDescriptionFile pdfFile = this.getDescription();
 		AddLog("Enabling ChatCensor v" + pdfFile.getVersion());
-
-		
-		
 		getCommand("cc").setExecutor(new CommandExecutor() {
             public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         		playerListener.onCommand(sender, command, label, args);
@@ -302,10 +301,11 @@ public class ChatCensor extends JavaPlugin{
 		loadConfig();
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvent(Event.Type.PLAYER_CHAT,this.playerListener,Event.Priority.Lowest,this);
-		
+		if (!setupPermissions() ) {
+			return;
+		}
 		db = new Database(this);
 		db.CheckDatabase();
-		setupPermissions();
 		c = new Censor(this);
 		AddLog("version "  + pdfFile.getVersion() + " enabled");
 	}

@@ -214,7 +214,7 @@ public class Database {
     		plugin.AddLog("Database not connected!");
     	}
     	
-    	String list[] = plugin.db.GetWords();
+    	String list[] = GetWords();
         try {
             BufferedWriter out = new BufferedWriter(new FileWriter(wordFile));
             for (String s : list) {

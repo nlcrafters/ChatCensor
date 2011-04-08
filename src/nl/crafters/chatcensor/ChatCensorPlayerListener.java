@@ -23,7 +23,8 @@ public class ChatCensorPlayerListener extends PlayerListener {
 	}
 	// Listens for player chats (event registered in main class)
 	public void onPlayerChat(PlayerChatEvent event) {
-		if (event.isCancelled()) 
+		
+		if (event.isCancelled() || !plugin.isEnabled()) 
 			return;
 		Player player = event.getPlayer();
 		
@@ -116,6 +117,7 @@ public class ChatCensorPlayerListener extends PlayerListener {
 			if (account.hasEnough(plugin.PlayerFine))
 			{
 				account.subtract(plugin.PlayerFine);
+				//iConomy.getTransactions().insert(p.getName(), to, from_balance, to_balance, set, gain, loss)
 			}
 			else {
 				double balance = account.getBalance();
@@ -214,7 +216,7 @@ public class ChatCensorPlayerListener extends PlayerListener {
 			plugin.db.importWords(player);
 			plugin.c.loadWords();
 		}
-		else if ( action.equalsIgnoreCase("export") && checkP(player,"ChatCensor.reload") ) {
+		else if ( action.equalsIgnoreCase("exp;ort") && checkP(player,"ChatCensor.reload") ) {
 			plugin.db.exportWords(player);
 		}
 		else if (action.equalsIgnoreCase("add") && (args.length==2) && checkP(player,"ChatCensor.modify") ) {

@@ -1,4 +1,7 @@
 Changelog:
+Version 0.16
+* Fixed error after disabling plugin
+* Checked pluginname for b670  
 Version 0.15
 * Changed iconomy details (use subtract instead of setbalance) 
 * If player is fined, but don't have enough balance -> kick
