@@ -65,25 +65,15 @@ public class Censor {
     			}
     			else {
     				domatch = out.toLowerCase().contains(s.toLowerCase());
-    				strToMatch = s.toLowerCase();
+    				strToMatch = s;
     			}
     			
     			if (domatch) {
 	    	    	badnews = true;
 					String replacement = plugin.getColor("labelsandcolors.replace-color")  + getRandomWord() + ChatColor.WHITE;
-					//plugin.AddLog("OUT:" + out);
-					//plugin.AddLog("machter:" + matcher.replaceAll(replacement));
-					//plugin.AddLog("OUT:" + out);
-					//plugin.AddLog("ReplaceAll:" + out.replaceAll(strToMatch,replacement));
-					//plugin.AddLog("OUT:" + out);
-					
-					
-					out = replace(out,strToMatch,replacement);
-					//out = out.replaceAll(strToMatch, replacement);
-    	    		//out = out.toLowerCase().replace(s.toLowerCase(),replacement);
-    				//out= out.replaceAll(ChatColor.WHITE + "" + ChatColor.YELLOW, "");
+    	    		out = out.toLowerCase().replace(s.toLowerCase(),replacement);
+					//out = replace(out,strToMatch,replacement);
     				out = cleanMsgEnding(out);
-    				//plugin.AddLog("OUT:" + out);
 	    	    }
     		}
     	}
@@ -101,6 +91,7 @@ public class Censor {
 
         // Replace all occurrences of pattern in input
         Matcher matcher = pattern.matcher(inputStr);
+        
         String output = matcher.replaceAll(replacementStr);
         return output;
     }

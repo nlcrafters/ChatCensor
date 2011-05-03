@@ -1,4 +1,8 @@
 Changelog:
+Version 0.19
+* Updated to work with Jail v0.6.1 and cb740
+Version 0.18
+* Fixed bug in upper/lower case matching
 Version 0.17
 * Bugfix in regex wip component
 Version 0.16

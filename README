@@ -1,16 +1,16 @@
-[ADMN/CHAT] ChatCensor v0.17 - Chat censor system with auto-kick/fine/jail [670]
+[ADMN/CHAT] ChatCensor v0.18 - Chat censor system with auto-kick/fine/jail [570]
 ================================================================================
 ChatCensor - Chat censor system with auto-kick/fine/jail
              
-[B]Version:[/B] v0.17
-Tested with craftbukkit builds: [B]b617/b670[/B] 
+[B]Version:[/B] v0.18
+Tested with craftbukkit builds: [B]b526/b527/b531/b541/b556[/B] 
 
 This plugin lets you control used languaged on your server, by censor words you want.
 You can also let users be kicked, fined and/or jailed, if you are running the appropiate plugins.
 
 [B]Features:[/B]
 [LIST]
-[*] Filters words by pattern 
+[*] Filters words by pattern (regex)
 [*] Auto-Kick on use of forbidden word(s)
 [*] Let players pay a fine on use of forbidden word(s)
 [*] Let players spend time in jail on use of forbidden word(s)
@@ -27,7 +27,7 @@ You can also let users be kicked, fined and/or jailed, if you are running the ap
 [*] A mysql*.jar or sqlite*.jar in your bukkit or bukkit/lib folder
 [*] iConomy (tested with 4.4) - optionally
 [*] Jail (tested with v0.5.4) - optionally
-[*] Tested craftbukkit b617/b670
+[*] Tested craftbukkit b526/b527/b531/b541/b556
 [*] GroupManager v1.0(alpha-5) - should work on permission, but this is untested
     It checks on groupmanager first, then on permissions plugin. If not found, the plugin is disabled
 [/LIST]
@@ -40,72 +40,6 @@ You can also let users be kicked, fined and/or jailed, if you are running the ap
 4) Start adding forbidden words with /cc add word, this can be done on the server console, or in the mc client
 5) set the right toggles with /cc toggle pay|jail|kick|mute
 6) off you go!
-[/spoiler]
-
-[spoiler=Config.yml]
-[code]
-# Configuration for ChatSensor
-#   - ddj 2011
-#
-
-# fine-amount: nr of iconomy units to pay as fine
-# jail-time: time in minutes player is sent to jail
-# auto-increase-jail-time: (jail-time + (auto-increase-jail-time*total times in jail) = variable jailtime
-#                          If you want to use the default fixed jailtime, set this number to 0.0
-# kick-when-broke: if a player is fined, but don't have enough coin, kick him/her instead.
-# use-regex: In development, doesnt do much atm
-settings:
-    fine-amount: 50
-    jail-time: 2
-    auto-increase-jail-time: 0.0
-    kick-when-broke: true
-    use-regex: true 
-### Toggles (Values at startup) ###
-# use-autofine = let the player pay a fine
-# use-autokick = kick the player
-# use-autojail = automatically put the player in the nearest jail
-# use-automute = Mute player chat while in jail
-toggles:
-    use-autofine: true
-    use-autokick: false
-    use-autojail: false
-    use-jailmute: false
-    
-    ### database type sqlite or mysql 
-database:
-    type: sqlite
-    mysql:
-        name: minecraft
-        username: root
-        password: root
-        hostname: localhost
-        port: 3306     
-### Labels ###
-labelsandcolors:
-    chat-prefix: '[CC]'
-    chat-prefix-color: '&d'
-    chat-message-color: '&f'
-    chat-highlighted-color: '&a'
-    replace-color: '&e'
-    replace-word: bananas
-    marked-words-color: '&c'
-### Broadcast messages  ###
-broadcasttext:
-    player-fined-message: '@playername@ received a fine of @fine-amount@ coin!'
-    player-kicked-message: '@playername@ is kicked for not following our rules on cursing!'
-    player-jailed-message: ' @playername@ is jailed @jailtime@ min for not following our rules on cursing!'
-### Messages to player(s)    
-messagetext:
-    player-fined: 'You have been fined @fine-amount@ because you were not following our rules!'
-    player-kicked: 'Kicked automatically because you were not following our rules!'
-    player-kicked-fined: 'Kicked automatically and fined @fine-amount@ for not following our rules!'
-    player-muted: 'You shout, but nobody is hearing you'
-    internal-possible-toggles: 'Possible toggles: jail - pay - kick'
-    internal-jail-status: 'Autojail status: @autojail-status@'
-    internal-kick-status: 'Autokick status: @autokick-status@'
-    internal-payfine-status: 'Autopay fine status: @autopayfine-status@'
-    internal-jailmute-status: 'Prevent chatting in jail: @jailmute-status@'
-[/code]
 [/spoiler]
 
 [spoiler=Permissions]
@@ -146,20 +80,10 @@ ChatCensor.action.fine
 [/spoiler]
 
 Download latest version:
-[url]http://www.crafters.nl/cc/ChatCensor_v0.17.zip[/url] ([url=http://www.crafters.nl/cc/ChatCensor.jar]Jar only[/url])
-Source Code is included in Jar and available through [url=https://github.com/nlcrafters]my github[/url]
+[url]http://www.crafters.nl/cc/ChatCensor_v0.15.zip[/url] ([url=http://www.crafters.nl/cc/ChatCensor.jar]Jar only[/url])
+Source Code is included in Jar
 
 [B]Changelog:[/B]
-Version 0.17 
-[LIST]
-[*] Fixed bug which caused whole sentence being replaced by 1 word 
-[/LIST]
-Version 0.16 
-[LIST]
-[*] Fixed error after disabling plugin
-[*] Added some code for full regex search (not functional yet)
-[/LIST]
-
 Version 0.15 
 [LIST]
 [*] Little changes to iconomy setup (use subtract instead of setbalance) 
@@ -171,12 +95,13 @@ Version 0.15
 [*] Added one argument to /cc list -> /cc list abc now returns all words containing abc
 [*] Added /cc clearall -> used for clear all words from databae; use with care!
 [/LIST]
-[spoiler=All Versions]
+
 Version 0.14 
 [LIST]
 [*] Added multiple replacement-words. Instead of only bananas, you can set your
 word-value to bananas,apples,peers  It will then take one randomly each time a word is replaced. 
 [/LIST]
+[spoiler=All Versions]
 Version 0.13 
 [LIST]
 [*] Added more flexible database libraries. Having a mysql*.jar or sqlite jar in 

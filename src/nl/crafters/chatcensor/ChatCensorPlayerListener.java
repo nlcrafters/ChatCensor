@@ -85,6 +85,7 @@ public class ChatCensorPlayerListener extends PlayerListener {
 		return true;
 	}
 	private boolean JailPlayer(Player p, boolean ignoreStatus) {
+		plugin.AddLog("jail zones:" + Jail.zones.size());
 		if (plugin.useAutoJail || ignoreStatus ) {
 			try {
 				if (Jail.zones.size() > 0) {
@@ -92,7 +93,7 @@ public class ChatCensorPlayerListener extends PlayerListener {
 					String jMethod = plugin.config.getString("settings.jail-api-type","api");
 					if (jMethod.equalsIgnoreCase("api")) {
 						// Method 1
-						JailPrisoner prisoner = new JailPrisoner(p.getName() , nJailTime * 6, "", false, "");
+						JailPrisoner prisoner = new JailPrisoner(p.getName(),nJailTime * 6,"",false,"","Jailed by chatcensor plugin",false);
 						plugin.jail.Jail(prisoner, p);
 					}
 					else if (jMethod.equalsIgnoreCase("consolecommand")){
