@@ -157,7 +157,7 @@ ChatCensor.action.fine
 [/spoiler]
 
 Download latest version:
-http://www.crafters.nl/cc/ChatCensor_v0.19.zip (Jar only)
+http://www.crafters.nl/cc/ChatCensor_v0.20.zip ([url=http://www.crafters.nl/cc/ChatCensor.jar]Jar only[/url])
 
 Source Code is included in Jar and available through my github
 Changelog:
@@ -165,19 +165,20 @@ Changelog:
 Version 0.20
     Fixed autojail bug
     Fixed iConomy 5 support
+
 Version 0.19
     Made plugin compatible with jail 0.6.1
+
 Version 0.18
     Fixed bug with upper/lower case words not being replaced
 
 Version 0.17
     Fixed bug which caused whole sentence being replaced by 1 word
-
+[spoiler=All Versions]
 Version 0.16
     Fixed error after disabling plugin
     Added some code for full regex search (not functional yet)
 
-[spoiler=All Versions]
 Version 0.15
     Little changes to iconomy setup (use subtract instead of setbalance)
     If player is fined, but don't have enough balance -> kick
