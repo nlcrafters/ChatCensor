@@ -1,4 +1,8 @@
 Changelog:
+Version 0.21
+* Fixed path bug for sqlite/linux systems
+* Changed sqlite database name from csensor.db to ccensor.db 
+  (Use SQLITE? rename your db manually to ccensor.db before using v0.21!) 
 Version 0.20
 * Fixed autojail bug
 * Fixed iconomy 5 support

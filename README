@@ -1,6 +1,7 @@
 ChatCensor - Chat censor system with auto-kick/fine/jail
 
-Version: v0.20
+Version: v0.21
+(USE SQLITE? Rename your database from csensor.db to ccensor.db manually before using v0.21!)
 
 Tested with craftbukkit builds: b617/b670/b740
 
@@ -157,10 +158,14 @@ ChatCensor.action.fine
 [/spoiler]
 
 Download latest version:
-http://www.crafters.nl/cc/ChatCensor_v0.20.zip ([url=http://www.crafters.nl/cc/ChatCensor.jar]Jar only[/url])
+http://www.crafters.nl/cc/ChatCensor_v0.21.zip ([url=http://www.crafters.nl/cc/ChatCensor.jar]Jar only[/url])
 
 Source Code is included in Jar and available through my github
 Changelog:
+Version 0.21
+    Fixed path bug for sqlite/linux systems
+    Changed sqlite database name from csensor.db to ccensor.db 
+    (Use SQLITE? rename your db manually to ccensor.db before using v0.21!) 
 
 Version 0.20
     Fixed autojail bug
