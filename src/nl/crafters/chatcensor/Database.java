@@ -47,7 +47,7 @@ public class Database {
 			dbString = "jdbc:mysql://" + plugin.mysqlHost + ":"+plugin.mysqlPort + "/" + plugin.mysqlDatabase ;
 		}
 		else {
-			dbString = "jdbc:sqlite:plugins\\ChatCensor\\csensor.db";
+			dbString = "jdbc:sqlite:plugins/ChatCensor/ccensor.db";
 		}
 		return true;
 	}
@@ -61,7 +61,7 @@ public class Database {
 				connection = DriverManager.getConnection(dbString,plugin.mysqlUser,plugin.mysqlPassword);
 			}
 			else {
-				connection = DriverManager.getConnection("jdbc:sqlite:plugins\\ChatCensor\\csensor.db");
+				connection = DriverManager.getConnection("jdbc:sqlite:plugins/ChatCensor/ccensor.db");
 			}
 		} catch (SQLException e) {
 			plugin.AddLog("DB Error:" + e.getMessage());
