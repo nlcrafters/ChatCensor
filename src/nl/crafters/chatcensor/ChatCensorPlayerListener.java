@@ -10,8 +10,9 @@ import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.event.player.PlayerListener;
 import com.matejdro.bukkit.jail.Jail;
 import com.matejdro.bukkit.jail.JailPrisoner;
-import com.nijiko.coelho.iConomy.iConomy;
-import com.nijiko.coelho.iConomy.system.Account;
+
+import com.iConomy.iConomy;
+import com.iConomy.system.Holdings;
 
 public class ChatCensorPlayerListener extends PlayerListener {
 	public static ChatCensor plugin;
@@ -114,21 +115,21 @@ public class ChatCensorPlayerListener extends PlayerListener {
 	private boolean FinePlayer(Player p, boolean ignoreStatus) {
 		if (plugin.useiConomy) {
 			plugin.playerFined(p);
-			Account account = iConomy.getBank().getAccount(p.getName());
-			if (account.hasEnough(plugin.PlayerFine))
+			Holdings balance = iConomy.getAccount(p.getName()).getHoldings();
+			if (balance.hasEnough(plugin.PlayerFine))
 			{
-				account.subtract(plugin.PlayerFine);
+				balance.subtract(plugin.PlayerFine);
 				//iConomy.getTransactions().insert(p.getName(), to, from_balance, to_balance, set, gain, loss)
 			}
 			else {
-				double balance = account.getBalance();
-				account.subtract(balance);
+				double bal = balance.balance();
+				balance.subtract(bal);
 				if ( (plugin.useKickWhenBroke==true) && (plugin.useAutoKick==false) ) {
 					KickPlayer(p,true);
 				}
 			}
 			plugin.db.AddCounter(p.getName(), "fine");
-			account = null;
+			balance= null;
 		}
 		return true;
 	}

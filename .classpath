@@ -5,8 +5,8 @@
 	<classpathentry kind="lib" path="C:/Bukkit/bukkit-0.0.1-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="C:/Bukkit/FakePermissions.jar"/>
 	<classpathentry kind="lib" path="C:/Bukkit/GroupManager.jar"/>
-	<classpathentry kind="lib" path="C:/Bukkit/iConomy.jar"/>
 	<classpathentry kind="lib" path="C:/Bukkit/Jail.jar"/>
 	<classpathentry kind="lib" path="C:/Bukkit/craftbukkit_740.jar"/>
+	<classpathentry kind="lib" path="C:/Bukkit/iConomy.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

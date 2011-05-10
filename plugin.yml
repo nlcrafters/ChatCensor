@@ -1,6 +1,6 @@
 name: ChatCensor
 main: nl.crafters.chatcensor.ChatCensor
-version: 0.19
+version: 0.20
 authors:
 - ddj
 commands:

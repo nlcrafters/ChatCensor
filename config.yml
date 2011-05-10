@@ -17,7 +17,7 @@ settings:
     auto-increase-jail-time: 0.0
     kick-when-broke: true
     use-regex: false 
-    jail-api-type: api
+    jail-api-type: consolecommand
 ### Toggles (Values at startup) ###
 # use-autofine = let the player pay a fine
 # use-autokick = kick the player

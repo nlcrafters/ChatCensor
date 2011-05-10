@@ -1,6 +1,6 @@
 ChatCensor - Chat censor system with auto-kick/fine/jail
 
-Version: v0.19
+Version: v0.20
 
 Tested with craftbukkit builds: b617/b670/b740
 
@@ -161,9 +161,11 @@ http://www.crafters.nl/cc/ChatCensor_v0.19.zip (Jar only)
 Source Code is included in Jar and available through my github
 Changelog:
 
+Version 0.20
+    Fixed autojail bug
+    Fixed iConomy 5 support
 Version 0.19
     Made plugin compatible with jail 0.6.1
-
 Version 0.18
     Fixed bug with upper/lower case words not being replaced
 
