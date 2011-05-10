@@ -24,7 +24,7 @@ Features:
 [spoiler=Prerequisites]
 
     A mysql*.jar or sqlite*.jar in your bukkit or bukkit/lib folder
-    iConomy (tested with 4.4) - optionally
+    iConomy (tested with 5) - optionally
     Jail (tested with v0.6.1) - optionally
     Tested craftbukkit b617/b670/b740
     GroupManager v1.0(alpha-5) - should work on permission, but this is untested
@@ -67,6 +67,7 @@ settings:
     auto-increase-jail-time: 0.0
     kick-when-broke: true
     use-regex: true
+    jail-api-type: consolecommand
 
 ### Toggles (Values at startup) ###
 # use-autofine = let the player pay a fine
